@@ -14,4 +14,3 @@ GRANT CREATE SESSION, CREATE TABLE, CREATE SEQUENCE TO tienda_productos;
 
 UNDEFINE clave_usuarios
 UNDEFINE clave_productos
-

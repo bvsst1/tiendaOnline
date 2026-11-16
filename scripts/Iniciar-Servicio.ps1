@@ -12,4 +12,3 @@ if (-not (Test-Path -LiteralPath $jar)) {
 }
 & java -jar $jar
 if ($LASTEXITCODE -ne 0) { throw "El servicio $Servicio terminó con error." }
-

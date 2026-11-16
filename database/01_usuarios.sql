@@ -19,4 +19,3 @@ INSERT INTO usuarios VALUES (1, 'Administrador', 'admin@tienda.cl', '$2a$10$BOFR
 INSERT INTO usuarios VALUES (2, 'Camila Soto', 'cliente@tienda.cl', '$2a$10$BOFRJ2t7M62MToN9mPcBP.WRQQvQspXa6WEowI7WKJGB9PrIt9.ui', 'CLIENTE');
 INSERT INTO usuarios VALUES (3, 'Diego Rojas', 'diego@tienda.cl', '$2a$10$BOFRJ2t7M62MToN9mPcBP.WRQQvQspXa6WEowI7WKJGB9PrIt9.ui', 'CLIENTE');
 COMMIT;
-

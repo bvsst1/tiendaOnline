@@ -51,4 +51,3 @@ public class GlobalExceptionHandler {
         return ResponseEntity.internalServerError().body(ApiError.crear(500, "Error interno del servidor"));
     }
 }
-

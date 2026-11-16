@@ -21,4 +21,3 @@ INSERT INTO productos VALUES (3, 'Audífonos', 'Audífonos con micrófono', 'Aud
 INSERT INTO productos VALUES (4, 'Pendrive 64 GB', 'Memoria USB de 64 GB', 'Almacenamiento', 7990, 20);
 INSERT INTO productos VALUES (5, 'Soporte notebook', 'Soporte regulable de escritorio', 'Escritorio', 12990, 10);
 COMMIT;
-

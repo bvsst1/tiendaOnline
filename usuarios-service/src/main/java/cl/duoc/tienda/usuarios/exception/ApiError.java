@@ -8,4 +8,3 @@ public record ApiError(Instant fecha, int estado, String mensaje, Map<String, St
         return new ApiError(Instant.now(), estado, mensaje, Map.of());
     }
 }
-

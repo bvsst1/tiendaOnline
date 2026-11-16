@@ -29,4 +29,3 @@ public class AuthController {
         return tokens.emitir(usuarios.autenticar(solicitud));
     }
 }
-

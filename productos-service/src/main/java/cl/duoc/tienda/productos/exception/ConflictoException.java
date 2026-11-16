@@ -5,4 +5,3 @@ public class ConflictoException extends RuntimeException {
         super(mensaje);
     }
 }
-

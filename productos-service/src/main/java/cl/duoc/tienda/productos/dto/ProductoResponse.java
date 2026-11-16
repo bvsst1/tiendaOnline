@@ -10,4 +10,3 @@ public record ProductoResponse(Long id, String nombre, String descripcion, Strin
                 producto.getCategoria(), producto.getPrecio(), producto.getStock());
     }
 }
-

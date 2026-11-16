@@ -165,4 +165,3 @@ class UsuariosIntegrationTest {
                 .andExpect(status().isBadRequest());
     }
 }
-

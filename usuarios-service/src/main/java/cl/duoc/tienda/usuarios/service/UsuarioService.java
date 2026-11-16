@@ -92,4 +92,3 @@ public class UsuarioService {
         return email.strip().toLowerCase(Locale.ROOT);
     }
 }
-

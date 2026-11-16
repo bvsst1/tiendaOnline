@@ -68,4 +68,3 @@ public class ProductoService {
         producto.setStock(solicitud.stock());
     }
 }
-

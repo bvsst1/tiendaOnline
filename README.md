@@ -150,7 +150,7 @@ Para demostrar persistencia, ejecuta las consultas de `database/03_verificar.sql
 
 ## Entrega
 
-Revisa `docs/REVISION-ENTREGA.md` y prepara la presentación con `docs/GUIA-VIDEO.md`. El ZIP debe contener código, scripts SQL, Maven Wrapper, colección y documentación. No debe incluir `.env`, tokens, cachés ni carpetas target.
+Revisa `docs/REVISION-ENTREGA.md` y prepara la presentación con `docs/GUIA-VIDEO.md`. Ejecuta `scripts/Crear-Zip.ps1` para generar el comprimido con código, scripts SQL, Maven Wrapper, colección y documentación. El script excluye `.env`, tokens de configuración, cachés y carpetas target.
 
 Usa Git durante las modificaciones y publica el repositorio correspondiente. No basta con un ZIP: el enlace Git y la grabación Kaltura deben adjuntarse en el AVA.
 
@@ -159,4 +159,3 @@ Usa Git durante las modificaciones y publica el repositorio correspondiente. No 
 - [Spring Boot 3.5 y requisitos de Java](https://docs.spring.io/spring-boot/3.5/system-requirements.html).
 - [Validación de JWT con Spring Security](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/jwt.html).
 - [Oracle Free local en contenedores](https://docs.oracle.com/en/database/oracle/agent-memory/26.8/guide/run-locally.html).
-

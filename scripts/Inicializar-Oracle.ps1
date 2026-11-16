@@ -23,9 +23,12 @@ docker compose up -d
 if ($LASTEXITCODE -ne 0) { throw 'No se pudo iniciar Oracle. Comprueba Docker Desktop y el puerto 1521.' }
 Write-Host 'Esperando a que Oracle esté listo...'
 $listo = $false
-for ($intento = 0; $intento -lt 90; $intento++) {
+for ($intento = 0; $intento -lt 180; $intento++) {
     $logs = docker logs tienda-semana2-oracle 2>&1 | Out-String
     if ($logs.Contains('DATABASE IS READY TO USE!')) { $listo = $true; break }
+    if ($logs.Contains('DATABASE SETUP WAS NOT SUCCESSFUL!')) {
+        throw 'Oracle no pudo iniciar. Revisa docker logs tienda-semana2-oracle antes de continuar.'
+    }
     Start-Sleep -Seconds 2
 }
 if (-not $listo) { throw 'Oracle todavía no está listo. Revisa docker logs tienda-semana2-oracle y vuelve a ejecutar este script.' }
@@ -72,7 +75,9 @@ EXIT
 "@
     $salida = $consulta | docker exec -i tienda-semana2-oracle sqlplus -s /nolog
     if ($LASTEXITCODE -ne 0) { throw "No se pudo conectar al esquema $usuario." }
-    if (($salida | Out-String).Trim() -eq '0') {
+    $conteos = @($salida | Where-Object { $_.Trim() -match '^\d+$' })
+    if ($conteos.Count -ne 1) { throw "No se pudo comprobar la tabla $tipo." }
+    if ([int]$conteos[0].Trim() -eq 0) {
         $archivo = if ($tipo -eq 'usuarios') { '01_usuarios.sql' } else { '02_productos.sql' }
         $contenido = Get-Content -LiteralPath "database/$archivo" -Raw
         $carga = "WHENEVER SQLERROR EXIT SQL.SQLCODE`nCONNECT $usuario/`"$clave`"@FREEPDB1`n$contenido`nEXIT"
@@ -83,4 +88,3 @@ EXIT
     }
 }
 Write-Host 'Oracle listo: localhost:1521/FREEPDB1. Se crearon tres usuarios y cinco productos en una instalación nueva.'
-

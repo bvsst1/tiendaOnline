@@ -62,4 +62,3 @@ La autenticación utiliza tokens de corta duración. Un cambio de rol no invalid
 10. ¿Qué información nunca se debería escribir en los logs?
 
 Practica las respuestas usando las clases del proyecto y tus propias palabras.
-

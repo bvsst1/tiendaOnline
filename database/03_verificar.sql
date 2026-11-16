@@ -10,4 +10,3 @@ SELECT id, nombre, categoria, precio, stock FROM productos ORDER BY id;
 SELECT COUNT(*) AS total_productos FROM productos;
 -- Reemplazar 100 por el ID devuelto en Postman durante la demostración.
 SELECT id, nombre, precio, stock FROM productos WHERE id = 100;
-

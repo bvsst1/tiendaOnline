@@ -136,4 +136,3 @@ class ProductosIntegrationTest {
                 .andExpect(status().isOk()).andExpect(content().json("[]"));
     }
 }
-

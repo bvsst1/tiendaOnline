@@ -9,4 +9,3 @@ public record UsuarioUpdateRequest(
         @NotNull(message = "El rol es obligatorio") Rol rol,
         @Pattern(regexp = "[\\x21-\\x7E]{8,64}", message = "Usa entre 8 y 64 caracteres ASCII sin espacios") String password
 ) {}
-

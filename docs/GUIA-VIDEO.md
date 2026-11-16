@@ -38,4 +38,3 @@ La colección completa sirve para revisar antes de grabar. Durante el video ejec
 ## Después de grabar
 
 Comprueba que dure entre siete y diez minutos, se escuche claramente y los datos sean legibles. Publica en Kaltura con los permisos necesarios para el docente y verifica el enlace antes de adjuntarlo en el AVA.
-

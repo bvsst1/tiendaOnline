@@ -8,4 +8,3 @@ public record UsuarioResponse(Long id, String nombre, String email, Rol rol) {
         return new UsuarioResponse(usuario.getId(), usuario.getNombre(), usuario.getEmail(), usuario.getRol());
     }
 }
-

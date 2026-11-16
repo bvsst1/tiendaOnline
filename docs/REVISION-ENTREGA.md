@@ -38,4 +38,3 @@ El caso de trabajo es la tienda en línea indicado por el profesor en el foro de
 Las pruebas automáticas utilizan H2 para comprobar reglas, controladores y seguridad. Es necesario demostrar también el funcionamiento contra Oracle; H2 no cumple por sí sola el requisito de la evaluación.
 
 El video, su publicación en Kaltura y el envío en AVA requieren la participación del estudiante. Esta lista no se considera completada solo por tener el código.
-

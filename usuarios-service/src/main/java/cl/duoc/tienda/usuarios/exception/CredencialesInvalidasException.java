@@ -5,4 +5,3 @@ public class CredencialesInvalidasException extends RuntimeException {
         super("Correo o contraseña incorrectos");
     }
 }
-

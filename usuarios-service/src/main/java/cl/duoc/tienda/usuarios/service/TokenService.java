@@ -33,4 +33,3 @@ public class TokenService {
         return new LoginResponse(token, "Bearer", duracion, UsuarioResponse.desde(usuario));
     }
 }
-

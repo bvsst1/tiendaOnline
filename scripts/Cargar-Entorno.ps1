@@ -15,4 +15,3 @@ if (-not $env:JAVA_HOME -and (Test-Path -LiteralPath 'C:\Program Files\Android\A
     $env:JAVA_HOME = 'C:\Program Files\Android\Android Studio\jbr'
 }
 if ($env:JAVA_HOME) { $env:PATH = "$env:JAVA_HOME\bin;$env:PATH" }
-
