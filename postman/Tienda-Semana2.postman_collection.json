@@ -80,9 +80,9 @@
             "type": "text/javascript",
             "exec": [
               "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-              "const data = pm.response.json();",
-              "pm.test(\"Token y perfil sin contraseña\", function () { pm.expect(data.token).to.be.a(\"string\"); pm.expect(data.usuario).to.not.have.property(\"passwordHash\"); pm.expect(data.usuario.rol).to.eql(\"ADMINISTRADOR\"); });",
-              "pm.collectionVariables.set(\"adminToken\", data.token);"
+              "const respuestaLogin = pm.response.json();",
+              "pm.test(\"Token y perfil sin contraseña\", function () { pm.expect(respuestaLogin.token).to.be.a(\"string\"); pm.expect(respuestaLogin.usuario).to.not.have.property(\"passwordHash\"); pm.expect(respuestaLogin.usuario.rol).to.eql(\"ADMINISTRADOR\"); });",
+              "pm.collectionVariables.set(\"adminToken\", respuestaLogin.token);"
             ]
           }
         }

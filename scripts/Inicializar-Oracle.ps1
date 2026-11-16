@@ -19,15 +19,23 @@ if (-not (Test-Path -LiteralPath '.env')) {
     Write-Host 'Configuración local creada en .env (excluida de Git y del ZIP).'
 }
 . "$PSScriptRoot/Cargar-Entorno.ps1"
-docker compose up -d
-if ($LASTEXITCODE -ne 0) { throw 'No se pudo iniciar Oracle. Comprueba Docker Desktop y el puerto 1521.' }
+$estadoOracle = docker inspect --format '{{.State.Running}} {{.Config.Image}}' tienda-semana2-oracle 2>$null
+if ($LASTEXITCODE -eq 0 -and $estadoOracle -eq 'true container-registry.oracle.com/database/free:23.9.0.0-lite') {
+    Write-Host 'Se utiliza la instancia Oracle 23ai que ya está ejecutándose.'
+} else {
+    docker compose up -d
+    if ($LASTEXITCODE -ne 0) { throw 'No se pudo iniciar Oracle. Comprueba Docker Desktop y el puerto 1521.' }
+}
 Write-Host 'Esperando a que Oracle esté listo...'
 $listo = $false
-for ($intento = 0; $intento -lt 180; $intento++) {
+for ($intento = 0; $intento -lt 450; $intento++) {
     $logs = docker logs tienda-semana2-oracle 2>&1 | Out-String
     if ($logs.Contains('DATABASE IS READY TO USE!')) { $listo = $true; break }
     if ($logs.Contains('DATABASE SETUP WAS NOT SUCCESSFUL!')) {
         throw 'Oracle no pudo iniciar. Revisa docker logs tienda-semana2-oracle antes de continuar.'
+    }
+    if ($intento -gt 0 -and $intento % 15 -eq 0) {
+        Write-Host 'Oracle sigue preparando la instancia; esperando a que termine...'
     }
     Start-Sleep -Seconds 2
 }
@@ -46,6 +54,10 @@ ALTER SESSION SET CONTAINER=FREEPDB1;
 DECLARE
     cantidad NUMBER;
 BEGIN
+    SELECT COUNT(*) INTO cantidad FROM dba_tablespaces WHERE tablespace_name='USERS';
+    IF cantidad=0 THEN
+        EXECUTE IMMEDIATE 'CREATE TABLESPACE users DATAFILE ''/opt/oracle/oradata/tienda_users01.dbf'' SIZE 50M AUTOEXTEND ON NEXT 10M MAXSIZE 300M';
+    END IF;
     SELECT COUNT(*) INTO cantidad FROM dba_users WHERE username='TIENDA_USUARIOS';
     IF cantidad=0 THEN
         EXECUTE IMMEDIATE 'CREATE USER tienda_usuarios IDENTIFIED BY "$env:USUARIOS_DB_PASSWORD" DEFAULT TABLESPACE users QUOTA 20M ON users';

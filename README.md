@@ -33,7 +33,7 @@ Abre esta carpeta en VS Code y ejecuta en PowerShell:
 .\scripts\Inicializar-Oracle.ps1
 ```
 
-Docker Desktop debe estar iniciado. La primera vez se descarga la imagen oficial de Oracle Free Lite; puede tardar varios minutos. El script genera claves aleatorias en `.env`, levanta Oracle y crea dos esquemas con datos iniciales. No borra tablas al ejecutarlo nuevamente.
+Docker Desktop debe estar iniciado. La primera vez se descarga la imagen oficial de Oracle Free 23ai Lite, versión 23.9.0.0. Puede tardar varios minutos; el script espera hasta quince minutos. Genera claves aleatorias en `.env`, levanta Oracle, crea el espacio USERS si falta y prepara dos esquemas con datos iniciales. No borra tablas al ejecutarlo nuevamente.
 
 Oracle queda accesible solo desde el equipo en `localhost:1521/FREEPDB1`. Los datos persisten en un volumen Docker. Para detenerlo:
 
@@ -152,7 +152,7 @@ Para demostrar persistencia, ejecuta las consultas de `database/03_verificar.sql
 
 Revisa `docs/REVISION-ENTREGA.md` y prepara la presentación con `docs/GUIA-VIDEO.md`. Ejecuta `scripts/Crear-Zip.ps1` para generar el comprimido con código, scripts SQL, Maven Wrapper, colección y documentación. El script excluye `.env`, tokens de configuración, cachés y carpetas target.
 
-Usa Git durante las modificaciones y publica el repositorio correspondiente. No basta con un ZIP: el enlace Git y la grabación Kaltura deben adjuntarse en el AVA.
+El repositorio es [bvsst1/tiendaOnline](https://github.com/bvsst1/tiendaOnline). Usa Git durante las modificaciones y mantén esa versión actualizada. El enlace Git y la grabación Kaltura deben adjuntarse en el AVA. Los resultados de la revisión técnica están en `docs/VERIFICACION.md`.
 
 ## Documentación consultada
 
