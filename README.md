@@ -11,7 +11,6 @@ El alcance sigue el caso de tienda y las prácticas descritas por el profesor en
 - `database`: creación de esquemas, tablas, secuencias y datos iniciales.
 - `postman`: colección con 26 solicitudes y comprobaciones.
 - `scripts`: preparación de Oracle y ejecución.
-- `docs`: explicación, revisión de requisitos y guía de presentación.
 
 Cada servicio tiene sus propias capas Controller, Service, Repository, Entity y DTO. Cada uno tiene su propio esquema Oracle. El servicio de productos comprueba la firma del token emitido por usuarios; no consulta las tablas de usuarios.
 
@@ -150,9 +149,9 @@ Para demostrar persistencia, ejecuta las consultas de `database/03_verificar.sql
 
 ## Entrega
 
-Revisa `docs/REVISION-ENTREGA.md` y prepara la presentación con `docs/GUIA-VIDEO.md`. Ejecuta `scripts/Crear-Zip.ps1` para generar el comprimido con código, scripts SQL, Maven Wrapper, colección y documentación. El script excluye `.env`, tokens de configuración, cachés y carpetas target.
+Ejecuta `scripts/Crear-Zip.ps1` para generar el comprimido con código, scripts SQL, Maven Wrapper y colección de Postman. El script excluye `.env`, tokens de configuración, cachés y carpetas target.
 
-El repositorio es [bvsst1/tiendaOnline](https://github.com/bvsst1/tiendaOnline). Usa Git durante las modificaciones y mantén esa versión actualizada. El enlace Git y la grabación Kaltura deben adjuntarse en el AVA. Los resultados de la revisión técnica están en `docs/VERIFICACION.md`.
+El repositorio es [bvsst1/tiendaOnline](https://github.com/bvsst1/tiendaOnline). Usa Git durante las modificaciones y mantén esa versión actualizada. El enlace Git y la grabación Kaltura deben adjuntarse en el AVA.
 
 ## Documentación consultada
 
