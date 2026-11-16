@@ -1,0 +1,15 @@
+services:
+  oracle:
+    image: container-registry.oracle.com/database/free:latest-lite
+    container_name: tienda-semana2-oracle
+    ports:
+      - "127.0.0.1:1521:1521"
+    environment:
+      ORACLE_PWD: ${ORACLE_PWD:?Configura ORACLE_PWD en .env}
+    volumes:
+      - tienda_oradata:/opt/oracle/oradata
+    shm_size: "1gb"
+
+volumes:
+  tienda_oradata:
+

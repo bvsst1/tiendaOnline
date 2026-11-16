@@ -1,0 +1,15 @@
+**/target/
+.herramientas/
+.m2-local/
+.env
+.env.*
+!.env.example
+config-local.ps1
+wallet/
+Wallet*/
+*.zip
+*.rar
+.vscode/
+.idea/
+*.log
+
